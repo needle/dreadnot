@@ -1,11 +1,20 @@
 language: node_js
 
-node_js:
-  - 0.6
-  - 0.8
+sudo: false
 
-before_script: ./lint.sh
+node_js:
+  - "0.10"
+  - "0.12"
+  - "4.0.0"
+
+before_install:
+  - "npm install -g npm"
+
+script:
+  - "npm run-script lint"
+  - "npm test"
 
 notifications:
   email:
-    - tomaz+travisci@tomaz.me
+    - justin.gallardo@gmail.com
+    - maburns@gmail.com

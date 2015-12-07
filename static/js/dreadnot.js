@@ -24,6 +24,12 @@ function streamLogs(log) {
         val = entry.obj[key];
       }
 
+      // convert ansi color codes to html
+      try {
+        val = ansi_up.ansi_to_html(val);
+      }
+      catch (err) { }
+
       return '<tr><td class="key">' + key + '</td><td>' + val + '</td></tr>';
     }).join('') + '</tbody></table></div>');
 
